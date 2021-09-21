@@ -55,7 +55,7 @@ def upload_image():
         db.session.add(image)
         db.session.commit()
 
-        return {'image': image.to_dict()}
+        return {'image': image.to_dict_extended()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -73,7 +73,7 @@ def update_image(imgId):
         image.caption = form['caption'].data
         db.session.add(image)
         db.session.commit()
-        return {'image': image.to_dict()}
+        return {'image': image.to_dict_extended()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -128,7 +128,6 @@ def like_image(imageId):
 
     image = Image.query.get(imageId)
     image.totalLikes += 1
-    print('LIKED:', image.totalLikes)
 
     db.session.add(like)
     db.session.add(image)
@@ -145,7 +144,6 @@ def un_like(imgId):
 
     image = Image.query.get(imgId)
     image.totalLikes -= 1
-    print('UNLIKED:', image.totalLikes)
 
     db.session.delete(like)
     db.session.commit()
