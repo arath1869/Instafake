@@ -9,19 +9,8 @@ import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
 const FeedCard = (feedCardProps) => {
     const user = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
-    const [poster, setPoster] = useState([])
 
     const dispatch = useDispatch()
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch(`/api/users/${feedCardProps.props.userId}`);
-            const responseData = await response.json();
-            setPoster(responseData);
-        }
-        fetchData();
-    },[]);
-
 
     const handleDeleteImage = (imgId) => {
         dispatch(delete_image(imgId))
@@ -36,10 +25,10 @@ const FeedCard = (feedCardProps) => {
         <div>
         <div className="image-top-padding">
                         <div className="profile-picture__feed" style={
-                    { backgroundImage: `url(${poster?.profileImgUrl})` }
+                    { backgroundImage: `url(${feedCardProps.testProp?.profileImgUrl})` }
                             }>
                         </div>
-                <div className="profile-username__feed"><Link to={`users/${feedCardProps.props?.userId}`} className="feed-profile__link">{poster.username}</Link></div>
+                <div className="profile-username__feed"><Link to={`users/${feedCardProps.props?.userId}`} className="feed-profile__link">{feedCardProps.testProp?.username}</Link></div>
                         </div>
                         <div className="image-container__image" style={
                     { backgroundImage: `url(${feedCardProps.props.imgUrl})` }
