@@ -82,7 +82,7 @@ export const set_image = (imgUrl, caption) => async (dispatch) => {
     dispatch(setImageBegin());
     const response = await fetch('/api/image_feed/create', {
         method: 'POST',
-        mode: 'cors',
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
         },
