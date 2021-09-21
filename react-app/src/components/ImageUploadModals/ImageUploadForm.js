@@ -29,7 +29,7 @@ const ImageUploadForm = ({ setShowModal }) => {
         async function upload() {
             try {
                 const data = await uploadFile(e.target.files[0], config)
-                setImgUrl(data.location)
+                setImgUrl((data.location).replace(/\s/g, '+'))
                 setImageProvided(true)
                 setLoading(false)
             } catch (e) {

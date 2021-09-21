@@ -5,6 +5,7 @@ import { delete_image, get_feed } from "../../store/feed";
 import { set_new_like } from "../../store/like"
 import { get_followings } from "../../store/following"
 import { Modal } from "../../context/Modal"
+import FeedCard from '../FeedCard'
 import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
 import './ImageFeed.css'
 
@@ -60,64 +61,7 @@ const ImageFeed = () => {
                 {feed.loading === true && <h2>Loading</h2>}
                 {feed.images && Object.values(feed.images).map(image => (
                     <div key={image.id} className="image-container">
-                        <>
-                    <div className="image-top-padding">
-                        <div className="profile-picture__feed" style={
-                                    { backgroundImage: `url(${users[arrayOfId.indexOf(image.userId)]?.profileImgUrl})` }
-                            }>
-                        </div>
-                    <div className="profile-username__feed"><Link to={`users/${image?.userId}`} className="feed-profile__link">{users[arrayOfId.indexOf(image.userId)]?.username}</Link></div>
-                        </div>
-                        <div className="image-container__image" style={
-                        { backgroundImage: `url(${image.imgUrl})` }
-                            }>
-                        </div>
-                        <div className="like-comment-container" >
-                        <div className="like-button-container" >
-                        <i className="far fa-heart" onClick={() => handleLike(image.id)}></i>
-                        </div>
-                        <div className="like-button-container">
-                            <i className="far fa-comment"></i>
-                        </div>
-                        </div>
-                        <div className="liked-container" >
-                        {getLikeAmount(image.id) >1 &&
-                        <>
-                            <div className="three-image-container" style={
-                                { backgroundImage: `url(${image.imgUrl})` }
-                            }>
-                            </div>
-                                    <div className="users-who-liked">Liked by <Link className="link_liked">username</Link> and <Link onClick={() => {setShowModal(true); setIdForModal(image.id);}}className="link_liked">{`${getLikeAmount(image.id)-1} others`}</Link>
-                                        {(showModal) && (
-                                            <Modal onClose={() => setShowModal(false)}>
-                                                <UsersWhoLiked props={feed.images[idForModal]} />
-                                            </Modal>
-                                        )}
-                                    </div>
-                        </>
-                        }
-                        {getLikeAmount(image.id) === 1 &&
-                        <>
-                            <div className="three-image-container" style={
-                                { backgroundImage: `url(${image.imgUrl})` }
-                            }>
-                            </div>
-                            <div className="users-who-liked">Liked by <Link className="link_liked">username</Link></div>
-                        </>
-                        }
-                        {getLikeAmount(image.id) < 1 &&
-                            <div className="users-who-liked">0 Likes</div>
-                        }
-                        </div>
-                    <p>{image.caption}</p>
-                    <p>{image.userId}</p>
-                    {user?.id === image.userId && (
-                <>
-                <button onClick={() => handleDeleteImage(image.id)}>Delete Image</button>
-                        <NavLink to={`/images/${image.id}`}>edit</NavLink>
-                    </>
-                )}
-                </>
+                        <FeedCard props={image}/>
                 </div>
                 ))}
                 </div>
