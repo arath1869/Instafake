@@ -60,7 +60,7 @@ const LoginForm = () => {
                 <div key={ind}>{error}</div>
               ))}
             </div>
-            <div className="instagram-title">Pseudogram</div>
+            <div className="instagram-title">Instafake</div>
             <div className="login-field">
               {/* <label htmlFor='email'>Email</label> */}
               <input className="login-form-inputs"
