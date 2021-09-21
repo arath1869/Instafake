@@ -7,17 +7,17 @@ now = datetime.now()
 
 def seed_images():
     img1 = Image(userId=2, imgUrl='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                 caption='Don’t trust everything you see, even salt looks like sugar', totalLikes=0, createdAt=f'{now}')
+                 caption='Don’t trust everything you see, even salt looks like sugar', totalLikes=5, createdAt=f'{now}')
     img2 = Image(userId=1, imgUrl='https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                 caption='Never give up on a dream just because of the time it will take to accomplish it. The time will pass anyway. -Earl Nightingale', totalLikes=0, createdAt=f'{now}')
+                 caption='Never give up on a dream just because of the time it will take to accomplish it. The time will pass anyway. -Earl Nightingale', totalLikes=4, createdAt=f'{now}')
     img3 = Image(userId=4, imgUrl='https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80',
-                 caption='Humble with a hint of Kanye', totalLikes=0, createdAt=f'{now}')
+                 caption='Humble with a hint of Kanye', totalLikes=5, createdAt=f'{now}')
     img4 = Image(userId=11, imgUrl='https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
-                 caption='Can’t share won’t share', totalLikes=0, createdAt=f'{now}')
+                 caption='Can’t share won’t share', totalLikes=2, createdAt=f'{now}')
     img5 = Image(userId=2, imgUrl='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                 caption='*sprays Febreze on your attitude*', totalLikes=0, createdAt=f'{now}')
+                 caption='*sprays Febreze on your attitude*', totalLikes=4, createdAt=f'{now}')
     img6 = Image(userId=3, imgUrl='https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80',
-                 caption='What’s an emoji for your mood right now?', totalLikes=0, createdAt=f'{now}')
+                 caption='What’s an emoji for your mood right now?', totalLikes=1, createdAt=f'{now}')
     img7 = Image(userId=4, imgUrl='https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
                  caption='Hot chocolate weather', totalLikes=0, createdAt=f'{now}')
     img8 = Image(userId=10, imgUrl='https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80',
@@ -25,23 +25,23 @@ def seed_images():
     img9 = Image(userId=15, imgUrl='https://images.unsplash.com/photo-1542224566-6e85f2e6772f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
                  caption='I don’t take shit personal from a person who don’t know me personally', totalLikes=0, createdAt=f'{now}')
     img10 = Image(userId=12, imgUrl='https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1333&q=80',
-                  caption='Not every paradise is tropical', totalLikes=0, createdAt=f'{now}')
+                  caption='Not every paradise is tropical', totalLikes=1, createdAt=f'{now}')
     img11 = Image(userId=13, imgUrl='https://images.unsplash.com/photo-1485160497022-3e09382fb310?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                  caption='Paris is always a good idea', totalLikes=0, createdAt=f'{now}')
+                  caption='Paris is always a good idea', totalLikes=4, createdAt=f'{now}')
     img12 = Image(userId=21, imgUrl='https://images.unsplash.com/photo-1445363692815-ebcd599f7621?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80',
-                  caption='You don’t get what you wish for, you get what you work for', totalLikes=0, createdAt=f'{now}')
+                  caption='You don’t get what you wish for, you get what you work for', totalLikes=5, createdAt=f'{now}')
     img13 = Image(userId=12, imgUrl='https://images.unsplash.com/photo-1456428199391-a3b1cb5e93ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80',
-                  caption='I miss you like an idiot misses the point', totalLikes=0, createdAt=f'{now}')
+                  caption='I miss you like an idiot misses the point', totalLikes=3, createdAt=f'{now}')
     img14 = Image(userId=2, imgUrl='https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80',
-                  caption='Whatever sprinkles your donuts', totalLikes=0, createdAt=f'{now}')
+                  caption='Whatever sprinkles your donuts', totalLikes=3, createdAt=f'{now}')
     img15 = Image(userId=4, imgUrl='https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-                  caption='Life is a combination of magic and pasta', totalLikes=0, createdAt=f'{now}')
+                  caption='Life is a combination of magic and pasta', totalLikes=2, createdAt=f'{now}')
     img16 = Image(userId=1, imgUrl='https://images.unsplash.com/photo-1491904768633-2b7e3e7fede5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80',
-                  caption='Where to? Anywhere.', totalLikes=0, createdAt=f'{now}')
+                  caption='Where to? Anywhere.', totalLikes=4, createdAt=f'{now}')
     img17 = Image(userId=3, imgUrl='https://images.unsplash.com/photo-1600298881974-6be191ceeda1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
-                  caption='Just burned 2000 calories. That’s the last time I leave brownies in the oven while I nap', totalLikes=0, createdAt=f'{now}')
+                  caption='Just burned 2000 calories. That’s the last time I leave brownies in the oven while I nap', totalLikes=1, createdAt=f'{now}')
     img18 = Image(userId=15, imgUrl='https://images.unsplash.com/photo-1458668383970-8ddd3927deed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1347&q=80',
-                  caption='Forget the past, you’ve got me now', totalLikes=0, createdAt=f'{now}')
+                  caption='Forget the past, you’ve got me now', totalLikes=1, createdAt=f'{now}')
     img19 = Image(userId=18, imgUrl='https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
                   caption='Where’s your favorite place to shop right now?', totalLikes=0, createdAt=f'{now}')
     img20 = Image(userId=11, imgUrl='https://images.unsplash.com/photo-1540390769625-2fc3f8b1d50c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80',
