@@ -144,7 +144,7 @@ const NavBar = () => {
             {location.pathname !== '/login' && location.pathname !== '/sign-up' &&
                 <div className='nav-bar'>
                     <div className='inner-nav'>
-                    <Link to="/home" className="feed-profile__link"><h2 className='nav-logo'>Pseudogram</h2></Link>
+                    <Link to="/home" className="feed-profile__link"><h2 className='nav-logo'>Instafake</h2></Link>
                         <div className='search-bar-div'><input
                             className='search-bar'
                             placeholder='Search'

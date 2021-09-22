@@ -7,6 +7,7 @@ import { get_followings } from "../../store/following"
 import { Modal } from "../../context/Modal"
 import FollowersModal from "../FollowersModal/FollowersModal.js"
 import FollowingModal from "../FollowingModal/FollowingModal.js"
+import ProfileImages from "../ProfileImages/ProfileImages";
 
 import ImageUploadModal from "../ImageUploadModals";
 import ImageModal from "../ImageModal";
@@ -59,7 +60,7 @@ const Profile = () => {
             imagesArray.push(element)
         }
     })
-    console.log(imagesArray.length)
+    console.log(imagesArray)
 
     return (
         <>
@@ -95,18 +96,10 @@ const Profile = () => {
                 </div>
                 <hr></hr>
                 <div className="profile-images-container">
-                    <div className="profile-images__mapped">
-                        
-                    </div>
-                    <div className="profile-images__mapped">
-
-                    </div>
-                    <div className="profile-images__mapped">
-
-                    </div>
-                    <div className="profile-images__mapped">
-
-                    </div>
+                    {imagesArray.map(image => (
+                        <ProfileImages image={image}  profileOwner={profileOwner}/>
+                    ))
+                    }
                 </div>
             </div>
         </div>
