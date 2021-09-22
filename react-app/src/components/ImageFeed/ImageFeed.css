@@ -11,7 +11,6 @@
 
 .image-container{
     border: 1px solid #D4D4D4;
-
     display: block;
     margin: 50px 100px;
     max-width: 600px;
@@ -74,6 +73,7 @@ width: 30px;
 margin-top: 6px;
 margin-left: 10px;
 display: inline-block;
+border: 2px solid orange;
 }
 
 .fa-heart{
@@ -110,7 +110,7 @@ background-position: center;
     border: 1px solid yellow;
     height: 20px;
     display: inline-block;
-    width: 250px;
+    width: 500px;
     margin-left: 10px;
     font-size: 15px;
     vertical-align: top;

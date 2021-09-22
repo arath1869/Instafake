@@ -36,7 +36,6 @@ const ImageFeed = () => {
         <>
             <div className="feed-container">
             <div className="feed-subcontainer">
-                {feed.loading === true && <h2>Loading</h2>}
                 {feed.images && Object.values(feed.images).reverse().map(image => (
                     <div key={image.id} className="image-container">
                         <FeedCard props={image} testProp={users[idArray.indexOf(image.userId)]}/>

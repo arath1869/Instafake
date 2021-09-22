@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, Link } from "react-router-dom";
 import { delete_image } from "../../store/feed";
-import { set_new_like } from "../../store/like"
 import { Modal } from "../../context/Modal"
 import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
+import LikeUnlikeComponent from "../LikeUnlikeComponent";
 
 const FeedCard = (feedCardProps) => {
     const user = useSelector(state => state.session.user)
@@ -16,9 +16,8 @@ const FeedCard = (feedCardProps) => {
         dispatch(delete_image(imgId))
     }
 
-    const handleLike = (imgId) => {
-        dispatch(set_new_like(imgId))
-    }
+    let likeArray = feedCardProps.props.likes
+    let randomLike = likeArray[Math.floor(Math.random()*likeArray.length)]
 
 
     return (
@@ -34,10 +33,8 @@ const FeedCard = (feedCardProps) => {
                     { backgroundImage: `url(${feedCardProps.props.imgUrl})` }
                             }>
                         </div>
-                        <div className="like-comment-container" >
-                        <div className="like-button-container" >
-                    <i className="far fa-heart" onClick={() => handleLike(feedCardProps.props.id)}></i>
-                        </div>
+                        <div className="like-comment-container">
+                        <LikeUnlikeComponent imageId={feedCardProps.props.id}/>
                         <div className="like-button-container">
                             <i className="far fa-comment"></i>
                         </div>
@@ -46,10 +43,10 @@ const FeedCard = (feedCardProps) => {
                     {feedCardProps.props.totalLikes >1 &&
                         <>
                             <div className="three-image-container" style={
-                            { backgroundImage: `url(${feedCardProps.props.imgUrl})` }
+                        { backgroundImage: `url(${randomLike.user.profileImgUrl})` }
                             }>
                             </div>
-                    <div className="users-who-liked">Liked by <Link className="link_liked">username</Link> and <Link onClick={() => { setShowModal(true)}} className="link_liked">{`${feedCardProps.props.totalLikes-1} others`}</Link>
+                    <div className="users-who-liked">Liked by <Link to={`/users/${randomLike.user.id}`} className="link_liked">{randomLike.user.username}</Link> and <Link onClick={() => { setShowModal(true)}} className="link_liked">{`${feedCardProps.props.totalLikes-1} others`}</Link>
                                         {(showModal) && (
                                             <Modal onClose={() => setShowModal(false)}>
                                                 <UsersWhoLiked props={feedCardProps.props.likes}/>
@@ -61,10 +58,10 @@ const FeedCard = (feedCardProps) => {
                     {feedCardProps.props.totalLikes === 1 &&
                         <>
                             <div className="three-image-container" style={
-                            { backgroundImage: `url(${feedCardProps.props.imgUrl})` }
+                            { backgroundImage: `url(${randomLike.user.profileImgUrl})` }
                             }>
                             </div>
-                            <div className="users-who-liked">Liked by <Link className="link_liked">username</Link></div>
+                            <div className="users-who-liked">Liked by <Link to={`/users/${randomLike.user.id}`} className="link_liked">{randomLike.user.username}</Link></div>
                         </>
                         }
                     {feedCardProps.props.totalLikes < 1 &&
