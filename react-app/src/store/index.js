@@ -6,6 +6,7 @@ import following from './following'
 import followers from './follower'
 import comments from './comment'
 import likes from './like'
+import users from './user'
 
 const rootReducer = combineReducers({
     session,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     followers,
     comments,
     likes,
+    users,
 });
 
 
