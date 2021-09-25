@@ -15,11 +15,16 @@ const ProfileImages = ({ image }) => {
 
     useEffect(() => {
         setCount(count+=1)
-        console.log('count',count)
         if(count % 4 === 0){
             setShowImageModal(false)
         }
     }, [word])
+
+    function handleonClose(e) {
+        e.preventDefault();
+        setCount(0)
+        setShowImageModal(false);
+    }
 
     return (
         <>
@@ -27,7 +32,7 @@ const ProfileImages = ({ image }) => {
             { backgroundImage: `url(${image.imgUrl})` }
         }></div>
             {(showImageModal) && (
-                <Modal onClose={() => setShowImageModal(false)}>
+                <Modal onClose={handleonClose}>
                     <ProfileFeedModal image={image} profileOwner={profileOwner} changeWord={word => setWord(word)}/>
                 </Modal>
             )}

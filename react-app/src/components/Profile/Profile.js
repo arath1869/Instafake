@@ -36,6 +36,11 @@ const Profile = () => {
     }, [])
 
     useEffect(() => {
+        testIfFollowing = Object.values(followers).some(users => users.id === user.id)
+        setFollowed(testIfFollowing)
+    },[followed,testIfFollowing])
+
+    useEffect(() => {
         (async () => {
             await dispatch(get_users());
         })();
@@ -69,9 +74,8 @@ const Profile = () => {
         }
     })
 
-    console.log('test for profile',followed)
-
-  
+    console.log('followed',followed)
+    console.log('testiffollowing', testIfFollowing)
 
 
     return (
@@ -86,15 +90,15 @@ const Profile = () => {
                     <div className="profile-info-holder">
                         <div className="profile-info__firstLayer">
                             <div className="profile-info__username">{profileOwner?.username}</div>
-                            {(followed || testIfFollowing) &&
+                            {(followed && testIfFollowing) &&
                                 <>
                                 <button className="profile-info__message">Message</button>
-                                <FollowUnfollowComponent profileOwner={profileOwner} />
+                                    <FollowUnfollowComponent profileOwner={profileOwner} changeFollow={follows => setFollowed(follows)}/>
                                 </>
                             }
-                            {(!testIfFollowing) &&
+                            {((!testIfFollowing && !followed)) &&
                                 <>
-                                <FollowUnfollowComponent profileOwner={profileOwner} />
+                                    <FollowUnfollowComponent profileOwner={profileOwner} changeFollow={follows => setFollowed(follows)}/>
                                 </>
                             }
                         </div>

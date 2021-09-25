@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import "./FollowUnfollow.css"
 
 
-const FollowUnfollowComponent = ({ profileOwner }) => {
+const FollowUnfollowComponent = ({ profileOwner, changeFollow }) => {
     const dispatch = useDispatch()
     const { userId } = useParams();
     const user = useSelector(state => state.session.user)
@@ -16,8 +16,12 @@ const FollowUnfollowComponent = ({ profileOwner }) => {
     let testIfFollowing = Object.values(followers).some(users => users.id === user.id)
     let [followed, setFollowed] = useState(testIfFollowing)
 
-    console.log(followed)
-    console.log('test1', testIfFollowing)
+    console.log('followed from component',followed)
+    console.log('testiffollowing from comptonent', testIfFollowing)
+
+    useEffect(() => {
+        changeFollow(followed)
+    }, [followed])
 
 
     const handleFollow = (e) => {
