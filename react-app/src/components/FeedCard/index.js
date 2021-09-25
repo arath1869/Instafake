@@ -17,8 +17,10 @@ const FeedCard = (feedCardProps) => {
     }
 
     let likeArray = feedCardProps.props.likes
+    let commentArray = feedCardProps.props.comments
     let randomLike = likeArray[Math.floor(Math.random()*likeArray.length)]
-
+    // console.log('commentArray', commentArray)
+    console.log('feedcardoprops',feedCardProps.props.createdAt)
 
     return (
         <div>
@@ -68,7 +70,33 @@ const FeedCard = (feedCardProps) => {
                             <div className="users-who-liked">0 Likes</div>
                         }
                         </div>
-                    <p>{feedCardProps.props.caption}</p>
+            {(feedCardProps.props.caption).length > 60 &&
+            <div className="like-comment-container">
+                <div className="username-caption-feed__small"><Link to={`/users/${feedCardProps.testProp?.id}`} className="link_liked">{feedCardProps.testProp?.username} </Link> {feedCardProps.props.caption}</div>
+            </div>
+            }            
+            {(feedCardProps.props.caption).length < 60 &&
+                <div className="like-comment-container">
+                    <div className="username-caption-feed"><Link to={`/users/${feedCardProps.testProp?.id}`} className="link_liked">{feedCardProps.testProp?.username} </Link> {feedCardProps.props.caption}</div>
+                </div>
+            }
+            {(commentArray.length === 0) &&
+            <div className="like-comment-container">
+                <div className="comments-link__feed">{`No comments yet`}</div>
+            </div>
+            }
+            {(commentArray.length > 0) &&
+                <>
+                <div className="like-comment-container">
+                <div>
+                    <div className="comments-link__feed">{`View all ${commentArray.length} comments`}</div>
+                </div>
+                </div>
+                <div className="like-comment-container">
+                <div className="username-caption-feed"><Link to={`/users/${commentArray[commentArray.length - 1]?.commenter.id}`} className="link_liked">{commentArray[commentArray.length - 1]?.commenter.username} </Link>{commentArray[commentArray.length - 1]?.content}</div>
+                </div>
+                </>
+            }
                     <p>{feedCardProps.props.userId}</p>
                     {
             user?.id === feedCardProps.props.userId && (

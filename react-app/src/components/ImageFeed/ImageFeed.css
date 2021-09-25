@@ -14,8 +14,8 @@
     display: block;
     margin: 50px 100px;
     max-width: 600px;
-    max-height: 800px;
-    min-height: 799px;
+    max-height: 900px;
+    min-height: 899px;
     border-radius: 5px;
 }
 
@@ -125,4 +125,29 @@ background-position: center;
 
 text{
     display: none;
+}
+
+.username-caption-feed__container{
+border: 1px solid pink;
+width:100%;
+height: 50px;
+}
+
+.username-caption-feed{
+    border: 1px solid green;
+    font-size: 15px;
+    margin: 0 11px;
+}
+
+.username-caption-feed__small{
+    border: 1px solid green;
+    font-size: 12px;
+    margin: 0 11px;
+}
+
+.comments-link__feed{
+    color: #9e9e9e;
+    border: 1px solid green;
+    font-size: 14px;
+    margin: 0 11px;
 }

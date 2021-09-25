@@ -25,6 +25,8 @@ const ImageFeed = () => {
 
     console.log('users', users)
 
+    console.log(Date())
+
 
 
     return (
