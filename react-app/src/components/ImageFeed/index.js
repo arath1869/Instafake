@@ -24,6 +24,7 @@ const ImageFeed = () => {
     }, [dispatch]);
 
     console.log('users', users)
+    console.log(feed.images)
 
     console.log(Date())
 
