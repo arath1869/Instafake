@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { set_new_comment } from "../../store/comment";
 import { get_feed } from "../../store/feed";
 import LikeUnlikeComponent from "../LikeUnlikeComponent";
+import { NavLink, Link } from "react-router-dom";
+import { Modal } from "../../context/Modal"
+import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
+import './ProfileFeedModal.css'
 
-const ProfileFeedModal = ({image, profileOwner}) => {
+const ProfileFeedModal = ({image, profileOwner, changeWord}) => {
 
+    const [showProfileFeedModal, setShowProfileFeedModal] = useState(false);
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
+
 
     const handleCommentSubmit = (e) => {
         e.preventDefault()
@@ -18,6 +24,24 @@ const ProfileFeedModal = ({image, profileOwner}) => {
         update_comment()
         setComment('')
     }
+
+    let likeArray = image.likes
+    let randomLike = likeArray[0]
+
+    const [ word, setWord ] = useState('parent')
+
+    useEffect(() => {
+        setWord('grandparent-redirect')
+        changeWord(word)
+        setShowProfileFeedModal(false);
+    }, [word])
+
+    function handleonClose(e) {
+        e.preventDefault();
+        setShowProfileFeedModal(false);
+    }
+
+
 
 
     return (
@@ -43,6 +67,35 @@ const ProfileFeedModal = ({image, profileOwner}) => {
                             })}
                         </div>
                         <LikeUnlikeComponent imageId={image.id} />
+                        <div className="liked-container__profile" >
+                            {image.totalLikes > 1 &&
+                                <>
+                                    <div className="three-image-container__profile" style={
+                                        { backgroundImage: `url(${randomLike.user.profileImgUrl})` }
+                                    }>
+                                    </div>
+                                    <div className="users-who-liked__profile">{`Liked by ${randomLike.user.username} and`} <Link onClick={() => { setShowProfileFeedModal(true) }} className="link_liked">{`${image.totalLikes - 1} others`}</Link>
+                                        {(showProfileFeedModal) && (
+                                            <Modal onClose={handleonClose}>
+                                            <UsersWhoLiked props={image.likes} changeWord={word => setWord(word)} />
+                                            </Modal>
+                                        )}
+                                    </div>
+                                </>
+                            }
+                            {image.totalLikes === 1 &&
+                                <>
+                                    <div className="three-image-container__profile" style={
+                                        { backgroundImage: `url(${randomLike.user.profileImgUrl})` }
+                                    }>
+                                    </div>
+                                <div className="users-who-liked__profile">{`Liked by ${randomLike.user.username}`}</div>
+                                </>
+                            }
+                            {image.totalLikes < 1 &&
+                                <div className="users-who-liked">0 Likes</div>
+                            }
+                        </div>
                         <div className='comment-button-container__image_modal'>
                             <textarea
                                 value={comment}

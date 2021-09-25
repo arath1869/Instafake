@@ -71,6 +71,8 @@ const Profile = () => {
 
     console.log('test for profile',followed)
 
+  
+
 
     return (
         <>
