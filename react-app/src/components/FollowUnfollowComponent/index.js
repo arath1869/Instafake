@@ -16,9 +16,6 @@ const FollowUnfollowComponent = ({ profileOwner, changeFollow }) => {
     let testIfFollowing = Object.values(followers).some(users => users.id === user.id)
     let [followed, setFollowed] = useState(testIfFollowing)
 
-    console.log('followed from component',followed)
-    console.log('testiffollowing from comptonent', testIfFollowing)
-
     useEffect(() => {
         changeFollow(followed)
     }, [followed])

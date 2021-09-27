@@ -137,6 +137,9 @@ height: 50px;
     border: 1px solid green;
     font-size: 15px;
     margin: 0 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .username-caption-feed__small{
@@ -150,4 +153,27 @@ height: 50px;
     border: 1px solid green;
     font-size: 14px;
     margin: 0 11px;
+}
+
+.like-comment-container__time{
+border: 1px solid pink;
+width:100%;
+height: 25px;
+}
+
+.comments-link__time{
+    color: #9e9e9e;
+    border: 1px solid green;
+    font-size: 12px;
+    margin: 0 11px;
+}
+
+.comment-button-container__feed__image {
+    margin: 0 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid rgb(182, 182, 182);
 }

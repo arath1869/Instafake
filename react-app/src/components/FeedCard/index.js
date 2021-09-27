@@ -1,26 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, Link } from "react-router-dom";
 import { delete_image } from "../../store/feed";
 import { Modal } from "../../context/Modal"
+import { get_feed } from "../../store/feed";
 import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
-import LikeUnlikeComponent from "../LikeUnlikeComponent";
+import { set_new_comment } from "../../store/comment";
+import ProfileFeedModal from "../ProfileFeedModal/ProfileFeedModal";
+import LikeComponentForFeed from "../LikeComponentForFeed";
+import UnlikeComponentForFeed from "../UnlikeComponentForFeed";
+
 
 const FeedCard = (feedCardProps) => {
     const user = useSelector(state => state.session.user)
     const [showModal, setShowModal] = useState(false);
-
+    const [showImageModal, setShowImageModal] = useState(false)
+    const [comment, setComment] = useState('')
+    const [word, setWord] = useState('parent')
+    let [count, setCount] = useState(0)
+    
     const dispatch = useDispatch()
 
     const handleDeleteImage = (imgId) => {
         dispatch(delete_image(imgId))
     }
 
+    useEffect(() => {
+        setCount(count += 1)
+        if (count % 4 === 0) {
+            setShowImageModal(false)
+        }
+    }, [word])
+
+
+    function handleonClose(e) {
+        e.preventDefault();
+        setCount(0)
+        setShowImageModal(false);
+    }
+
+    const handleCommentSubmit = (e) => {
+        e.preventDefault()
+        const update_comment = async () => {
+            await dispatch(set_new_comment(comment, feedCardProps.props.id))
+            await dispatch(get_feed())
+        }
+        update_comment()
+        setComment('')
+    }
+
     let likeArray = feedCardProps.props.likes
     let commentArray = feedCardProps.props.comments
-    let randomLike = likeArray[Math.floor(Math.random()*likeArray.length)]
-    // console.log('commentArray', commentArray)
-    console.log('feedcardoprops',feedCardProps.props.createdAt)
+    let randomLike = likeArray[likeArray.length-1]
+    let profileOwner = feedCardProps.testProp
+    let image = feedCardProps.props
+
+    let isLiked = likeArray.some(like => like.userId === user.id)
 
     return (
         <div>
@@ -36,9 +71,20 @@ const FeedCard = (feedCardProps) => {
                             }>
                         </div>
                         <div className="like-comment-container">
-                        <LikeUnlikeComponent imageId={feedCardProps.props.id}/>
+                            {!isLiked &&
+                                <LikeComponentForFeed imageId={feedCardProps.props.id}/>
+                            }
+                            {isLiked &&
+                                <UnlikeComponentForFeed imageId={feedCardProps.props.id} />
+                            }
                         <div className="like-button-container">
-                            <i className="far fa-comment"></i>
+                            <i className="far fa-comment" onClick={() => setShowImageModal(true)}></i>
+                            {(showImageModal) && (
+                        <Modal onClose={handleonClose}>
+                            <ProfileFeedModal profileOwner={profileOwner} image={image} changeWord={word => setWord(word)}/>
+                        </Modal>
+                        )
+                            }
                         </div>
                         </div>
                         <div className="liked-container" >
@@ -97,7 +143,24 @@ const FeedCard = (feedCardProps) => {
                 </div>
                 </>
             }
-                    <p>{feedCardProps.props.userId}</p>
+            <div className="like-comment-container__time">
+                <div className="comments-link__time">2 Days Ago</div>
+            </div>
+            <div className='comment-button-container__feed__image'>
+                <textarea
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    className='comment-input__image_modal'
+                    placeholder='Add a comment...'
+                ></textarea>
+                <div className='share-button-container__image_modal'>
+                    <button
+                        disabled={(comment.length === 0) ? true : false}
+                        className='comment-button__image_modal'
+                        onClick={handleCommentSubmit}
+                    >Post</button>
+                </div>
+            </div>
                     {
             user?.id === feedCardProps.props.userId && (
             <>
