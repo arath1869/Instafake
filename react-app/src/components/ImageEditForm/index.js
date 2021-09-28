@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { update_image, delete_image } from "../../store/feed";
 
 
-
-
 const ImageEditForm = () => {
     const { imageId } = useParams()
     const image = useSelector(state => state.feed.images[imageId])

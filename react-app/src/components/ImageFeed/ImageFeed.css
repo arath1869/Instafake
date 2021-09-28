@@ -1,10 +1,10 @@
 .feed-container{
-    border: 1px solid black;
+    border: 1px solid transparent;
     font-family: apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
 .feed-subcontainer{
-    border: 1px solid black;
+    border: 1px solid transparent;
     margin-top: 45px;
 
 }
@@ -21,7 +21,9 @@
 
 .image-top-padding{
     width:100%;
+    max-width: 600px;
     height: 60px;
+
 }
 
 .profile-picture__feed{
@@ -54,14 +56,13 @@
 .image-container__image{
     width:100%;
     height: 600px;
-    /* border: 1px solid black; */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .like-comment-container{
-border: 1px solid pink;
+border: 1px solid transparent;
 width:100%;
 height: 30px;
 }
@@ -73,7 +74,7 @@ width: 30px;
 margin-top: 6px;
 margin-left: 10px;
 display: inline-block;
-border: 2px solid orange;
+border: 1px solid transparent;
 }
 
 .fa-heart{
@@ -87,14 +88,14 @@ cursor: pointer;
 }
 
 .liked-container{
-border: 1px solid pink;
+border: 1px solid transparent;
 width:100%;
 margin-top:5px;
 height: 30px;
 }
 
 .three-image-container{
-border: 1px solid black;
+border: 1px solid #d4d4d4;
 width: 19px;
 height: 19px;
 border-radius: 50%;
@@ -107,7 +108,7 @@ background-position: center;
 }
 
 .users-who-liked{
-    border: 1px solid yellow;
+    border: 1px solid transparent;
     height: 20px;
     display: inline-block;
     width: 500px;
@@ -128,13 +129,13 @@ text{
 }
 
 .username-caption-feed__container{
-border: 1px solid pink;
+border: 1px solid transparent;
 width:100%;
 height: 50px;
 }
 
 .username-caption-feed{
-    border: 1px solid green;
+    border: 1px solid transparent;
     font-size: 15px;
     margin: 0 11px;
     text-overflow: ellipsis;
@@ -143,27 +144,30 @@ height: 50px;
 }
 
 .username-caption-feed__small{
-    border: 1px solid green;
+    border: 1px solid transparent;
     font-size: 12px;
     margin: 0 11px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .comments-link__feed{
     color: #9e9e9e;
-    border: 1px solid green;
+    border: 1px solid transparent;
     font-size: 14px;
     margin: 0 11px;
+    cursor: pointer;
 }
 
 .like-comment-container__time{
-border: 1px solid pink;
+border: 1px solid transparent;
 width:100%;
 height: 25px;
 }
 
 .comments-link__time{
     color: #9e9e9e;
-    border: 1px solid green;
+    border: 1px solid transparent;
     font-size: 12px;
     margin: 0 11px;
 }
@@ -176,4 +180,15 @@ height: 25px;
     justify-content: center;
     padding-top: 10px;
     border-top: 1px solid rgb(182, 182, 182);
+}
+
+.feed_threedot{
+    vertical-align: top;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    float:right;
+    margin-right: 15px;
+    z-index: 0;
 }

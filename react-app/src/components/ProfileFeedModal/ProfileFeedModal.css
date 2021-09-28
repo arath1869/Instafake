@@ -1,5 +1,5 @@
 .liked-container__profile{
-border: 1px solid pink;
+border: 1px solid transparent;
 width:100%;
 margin-top:5px;
 height: 30px;
@@ -7,7 +7,7 @@ margin-bottom: 5px;
 }
 
 .three-image-container__profile{
-border: 1px solid black;
+border: 1px solid #d4d4d4;
 width: 16px;
 height: 16px;
 border-radius: 50%;
@@ -20,7 +20,7 @@ background-position: center;
 }
 
 .users-who-liked__profile{
-    border: 1px solid yellow;
+    border: 1px solid transparent;
     height: 20px;
     display: inline-block;
     width: 200px;
