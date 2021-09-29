@@ -14,7 +14,7 @@ const config = {
     secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
 }
 
-const EditProfilePicModal = ({changeShowModal}) => {
+const EditProfilePicModal = ({changeShowModal, closeModal}) => {
 
     const user = useSelector(state => state.session.user)
     const [profileImgUrl, setProfileImgUrl] = useState(null)
@@ -59,9 +59,16 @@ const EditProfilePicModal = ({changeShowModal}) => {
         setImageProvided(true)
     }
 
+    function closeTheModal(){
+        closeModal(false)
+    }
+
 
     return (
-        <div className="three-dot-modal__three">
+        <div className="three-dot-modal__four">
+            <div className="three-modal-holder__title">
+                <div className="three-modal-text__title">Change Profile Photo</div>
+            </div>
             <div className="three-modal-holder">
                 <div className="three-modal-text__upload" onClick={handleClickSelect}>Upload Photo</div>
                 <input ref={imageInput} style={{ display: 'none' }} type='file' accept='.png,.jpeg,.jpg,' onChange={handleUrlSubmit} />
@@ -70,7 +77,7 @@ const EditProfilePicModal = ({changeShowModal}) => {
                 <div className="three-modal-text__delete" onClick={handleRemove}>Remove Current Photo</div>
             </div>
             <div className="three-modal-holder__noborder">
-                <div className="three-modal-text__normal">Cancel</div>
+                <div className="three-modal-text__normal" onClick={closeTheModal}>Cancel</div>
             </div>
         </div>
     )

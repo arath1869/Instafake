@@ -85,7 +85,7 @@ const MyProfile = () => {
                                 <i class="fas fa-user-cog" onClick={() => { setShowProfilePicModal(true) }}></i>
                                 {(showProfilePicModal) && (
                                     <Modal onClose={handleOnClose}>
-                                        <EditProfilePicModal changeShowModal={handleImage => setHandleImage(handleImage)}/>
+                                        <EditProfilePicModal closeModal={showProfilePicModal => setShowProfilePicModal(showProfilePicModal)} changeShowModal={handleImage => setHandleImage(handleImage)}/>
                                     </Modal>
                                 )
                                 }

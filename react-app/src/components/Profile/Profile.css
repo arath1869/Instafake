@@ -1,16 +1,16 @@
 .profile-page__container{
-    border: 1px solid black;
+    border: 1px solid transparent;
     margin-top: 70px;
 }
 
 .profile-general{
-    border: 2px solid orange;
+    border: 1px solid transparent;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .profile-card{
-    border: 2px solid blue;
+    border: 1px solid transparent;
     max-width: 700px;
     max-height: 240px;
     height: 239px;
@@ -20,7 +20,7 @@
 }
 
 .profile-image-holder{
-    border: 2px solid black;
+    border: 1px solid transparent;
     height: 150px;
     width: 150px;
     display: inline-block;
@@ -33,7 +33,7 @@
 }
 
 .profile-image-holder__myprofile{
-    border: 2px solid black;
+    border: 1px solid #d4d4d4;
     height: 150px;
     width: 150px;
     display: inline-block;
@@ -49,7 +49,7 @@
 
 
 .profile-info-holder{
-    border: 2px solid black;
+    border: 1px solid transparent;
     display: inline-block;
     height: 200px;
     width: 450px;
@@ -58,14 +58,14 @@
 }
 
 .profile-info__firstLayer{
-    border: 2px solid green;
+    border: 1px solid transparent;
     height: 40px;
     display: block;
     width: 400px;
 }
 
 .profile-info__username{
-    border: 2px solid black;
+    border: 1px solid transparent;
     width: 250px;
     height: 30px;
     display: inline-block;
@@ -103,21 +103,21 @@
 }
 
 .profile-info__secondLayer{
-    border: 2px solid green;
+    border: 1px solid transparent;
     height: 40px;
     display: block;
     width: 100%;
 }
 
 .profile-info__posts{
-    border: 1px solid black;
+    border: 1px solid transparent;
     height: 30px;
     width: 100px;
     display: inline-block;
 }
 
 .profile-info__followers{
-    border: 1px solid black;
+    border: 1px solid transparent;
     height: 30px;
     width: 100px;
     display: inline-block;
@@ -125,7 +125,7 @@
 }
 
 .profile-info__following{
-    border: 1px solid black;
+    border: 1px solid transparent;
     height: 30px;
     width: 100px;
     display: inline-block;
@@ -139,7 +139,7 @@
 }
 
 .profile-images-container{
-    border: 2px solid black;
+    border: 1px solid transparent;
     max-width: 800px;
     display: flex;
     flex-wrap: wrap;
@@ -150,7 +150,7 @@
     flex: 30%;
     max-width: 30%;
     min-width: 230px;
-    border: 2px solid yellow;
+    border: 1px solid transparent;
     height: 230px;
     margin-top: 5px;
     margin-bottom: 5px;

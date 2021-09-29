@@ -56,9 +56,9 @@ const ProfileFeedModal = ({image, profileOwner, changeWord}) => {
                 <div className='caption-share-container__image_modal'>
                     <div className='share-container-user-info__image_modal'>
                         <div className='user-profile-thumb__image_modal' style={
-                            { backgroundImage: `url(${profileOwner.profileImgUrl})` }
+                            { backgroundImage: `url(${profileOwner?.profileImgUrl})` }
                         }></div>
-                        <p>{profileOwner.username}</p>
+                        <p>{profileOwner?.username}</p>
                     </div>
                     <div className='comments_container__image_modal'>
                         <div className='comment-section__image_modal'>

@@ -10,6 +10,7 @@ import FollowersModal from "../FollowersModal/FollowersModal.js"
 import FollowingModal from "../FollowingModal/FollowingModal.js"
 import ProfileImages from "../ProfileImages/ProfileImages";
 import FollowUnfollowComponent from "../FollowUnfollowComponent";
+import ComingSoonModal from "../ComingSoonModal";
 
 import ImageUploadModal from "../ImageUploadModals";
 import ImageModal from "../ImageModal";
@@ -30,7 +31,8 @@ const Profile = () => {
 
     const [showFollowerModal, setShowFollowerModal] = useState(false);
     const [showFollowingModal, setShowFollowingModal] = useState(false);
-    const [showProfilePicModal, setShowProfilePicModal] = useState(false);
+    const [showComingSoonModal, setShowComingSoonModal] = useState(false)
+  
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -94,7 +96,12 @@ const Profile = () => {
                             <div className="profile-info__username">{profileOwner?.username}</div>
                             {(followed && testIfFollowing) &&
                                 <>
-                                <button className="profile-info__message">Message</button>
+                                <button className="profile-info__message" onClick={() => setShowComingSoonModal(true)} >Message</button>
+                                {showComingSoonModal && (
+                                    <Modal onClose={() => setShowComingSoonModal(false)} >
+                                        <ComingSoonModal />
+                                    </Modal>
+                                )}
                                     <FollowUnfollowComponent profileOwner={profileOwner} changeFollow={follows => setFollowed(follows)}/>
                                 </>
                             }

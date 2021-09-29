@@ -119,7 +119,7 @@ const NavBar = () => {
     }, [debouncedSearch])
 
     useEffect(async () => {
-        await dispatch(get_likes(user.id))
+        await dispatch(get_likes(user?.id))
     }, [dispatch])
 
 
