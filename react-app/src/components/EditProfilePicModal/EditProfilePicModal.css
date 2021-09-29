@@ -1,0 +1,35 @@
+.three-modal-holder{
+    border-bottom: 1px solid #d4d4d4;
+    text-align: center;
+    padding-top: 15px;
+    height: 33px;
+}
+
+.three-modal-holder__noborder{
+    text-align: center;
+    padding-top: 15px;
+    height: 33px;
+}
+
+.three-modal-text__upload{
+    color: #24a0ed;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 40px;
+    cursor: pointer;
+}
+
+.three-modal-text__delete{
+    color: #ef5350;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0 40px;
+    cursor: pointer;
+}
+
+.three-modal-text__normal{
+    color: black;
+    font-size: 15px;
+    margin: 0 40px;
+    cursor: pointer;
+}

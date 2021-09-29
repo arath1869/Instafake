@@ -20,7 +20,7 @@ const EditPostModal = ({image, changeShowEditModal}) => {
     return (
         <div className="edit-caption-container">
             <div className="edit-caption-title__holder">
-                <div className="edit-caption-title">Edit Post</div>
+                <div className="edit-caption-title">Edit Caption</div>
             </div>
             <div className="edit-image-holder" style={
                 { backgroundImage: `url(${image.imgUrl})` }

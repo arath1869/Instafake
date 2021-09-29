@@ -1,3 +1,5 @@
+from flask.globals import request
+from app.forms import UserUpdateForm
 from flask import Blueprint, jsonify
 from flask_login import login_required, current_user
 from sqlalchemy.orm import joinedload
@@ -18,6 +20,18 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
+@user_routes.route('/<int:id>', methods=['PUT'])
+def update_user(id):
+
+    form = UserUpdateForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        user = User.query.get(id)
+        user.profileImgUrl = form['profileImgUrl'].data
+        db.session.add(user)
+        db.session.commit()
+        return {'user': user.to_dict()}
 
 @user_routes.route('/<int:userId>/followings')
 @login_required

@@ -11,7 +11,13 @@
 }
 
 .delete-post-button{
-    border: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    text-align: center;
+    padding-top: 15px;
+    height: 33px;
+}
+
+.delete-post-button__noborder{
     text-align: center;
     padding-top: 15px;
     height: 33px;

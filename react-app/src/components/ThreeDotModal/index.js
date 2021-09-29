@@ -5,7 +5,6 @@ import './ThreeDotModal.css'
 
 const ThreeDotModal = (props) => {
     let userId = props.profileOwner.id
-    let username = props.profileOwner.username
     let imageId = props.image.id
     let [count, setCount] = useState(0)
     const user = useSelector(state => state.session.user)
@@ -46,8 +45,8 @@ const ThreeDotModal = (props) => {
             <div className="delete-post-button">
                 <div className="threebutton-text" onClick={handleOnClick} >Delete</div>
             </div>
-            <Link className="threebutton__link" to={`/users/${userId}`}><div className="delete-post-button">{`${username}'s Profile Page`}</div></Link>
-            <div className="delete-post-button">
+            <Link className="threebutton__link" to={`/users/${userId}`}><div className="delete-post-button">{`Go To Profile`}</div></Link>
+            <div className="delete-post-button__noborder">
                 <div className="threebutton-text" onClick={closeModalOnClick}>Close</div>
             </div>
         </div>
@@ -57,8 +56,8 @@ const ThreeDotModal = (props) => {
             <div className="delete-post-button">
                 <div className="threebutton-text" onClick={handleFollowOnClick}>Unfollow</div>
             </div>
-            <Link className="threebutton__link" to={`/users/${userId}`}><div className="delete-post-button">{`${username}'s Profile Page`}</div></Link>
-            <div className="delete-post-button">
+            <Link className="threebutton__link" to={`/users/${userId}`}><div className="delete-post-button">{`Go To Profile`}</div></Link>
+            <div className="delete-post-button__noborder">
             <div className="threebutton-text" onClick={closeModalOnClick}>Close</div>
                 </div>
              </div>

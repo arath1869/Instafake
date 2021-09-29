@@ -32,6 +32,22 @@
     background-position: center;
 }
 
+.profile-image-holder__myprofile{
+    border: 2px solid black;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-top: 10px;
+    vertical-align: top;
+    cursor: pointer;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
 .profile-info-holder{
     border: 2px solid black;
     display: inline-block;
@@ -143,5 +159,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
+}
+
+.fa-user-cog{
+    font-size: 26px;
     cursor: pointer;
 }

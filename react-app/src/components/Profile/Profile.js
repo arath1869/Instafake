@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { get_feed } from "../../store/feed";
 import { get_followers } from "../../store/follower"
 import { get_followings } from "../../store/following"
@@ -30,6 +30,7 @@ const Profile = () => {
 
     const [showFollowerModal, setShowFollowerModal] = useState(false);
     const [showFollowingModal, setShowFollowingModal] = useState(false);
+    const [showProfilePicModal, setShowProfilePicModal] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -77,8 +78,9 @@ const Profile = () => {
     console.log('followed',followed)
     console.log('testiffollowing', testIfFollowing)
 
-
-    return (
+    if (Number(userId) === Number(user.id)) {
+        return <Redirect to='/my-profile' />;
+    } else return (
         <>
         <div className="profile-page__container">
             <div className="profile-general">

@@ -5,13 +5,21 @@ import ProfileFeedModal from "../ProfileFeedModal/ProfileFeedModal";
 import { useParams } from 'react-router-dom';
 
 const ProfileImages = ({ image }) => {
-    
+    const user = useSelector(state => state.session.user);
     const [showImageModal, setShowImageModal] = useState(false);
     const { userId } = useParams();
     const users = useSelector(state => state.users)
-    const profileOwner = users[userId]
     const [word, setWord] = useState('parent')
     let [count, setCount] = useState(0)
+    const [profileOwner, setProfileOwner] = useState('')
+
+    useEffect(() => {
+        if(!userId){
+            setProfileOwner(user.id)
+        } else {
+            setProfileOwner(users[userId])
+        }
+    },[])
 
     useEffect(() => {
         setCount(count+=1)

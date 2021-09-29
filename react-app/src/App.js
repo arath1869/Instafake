@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -11,6 +11,8 @@ import Profile from './components/Profile/Profile';
 import ImageUploadModal from './components/ImageUploadModals/ImageUploadForm';
 import { authenticate } from './store/session';
 import ImageEditForm from './components/ImageEditForm';
+import UpdateProfile from './components/UpdateProfile';
+import MyProfile from './components/MyProfile';
 
 
 function App() {
@@ -38,9 +40,6 @@ function App() {
                 <Route path='/sign-up' exact={true}>
                     <SignUpForm />
                 </Route>
-                <ProtectedRoute path='/users' exact={true} >
-                    <UsersList />
-                </ProtectedRoute>
                 <ProtectedRoute path='/users/:userId' exact={true} >
                     <Profile />
                 </ProtectedRoute>
@@ -51,11 +50,14 @@ function App() {
                     <ImageEditForm />
                 </ProtectedRoute>
                 <ProtectedRoute path='/' exact={true} >
-                    <h1>My Home Page</h1>
+                    <Redirect from="/" to="/home" />
                 </ProtectedRoute>
-                <Route path='/image-upload'>
-                    <ImageUploadModal />
-                </Route>
+                <ProtectedRoute path='/profile-update' exact={true}>
+                    <UpdateProfile />
+                </ProtectedRoute>
+                <ProtectedRoute path="/my-profile" exact={true}>
+                    <MyProfile />
+                </ProtectedRoute>
             </Switch>
         </BrowserRouter>
     );
