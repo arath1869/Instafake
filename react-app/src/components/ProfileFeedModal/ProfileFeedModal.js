@@ -3,16 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { set_new_comment } from "../../store/comment";
 import { get_feed } from "../../store/feed";
 import LikeUnlikeComponent from "../LikeUnlikeComponent";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useParams } from "react-router-dom";
 import { Modal } from "../../context/Modal"
 import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
 import './ProfileFeedModal.css'
 
-const ProfileFeedModal = ({image, profileOwner, changeWord}) => {
-
+const ProfileFeedModal = ({image, changeWord}) => {
+    const { userId } = useParams()
     const [showProfileFeedModal, setShowProfileFeedModal] = useState(false);
+    const users = useSelector(state => state.users)
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
+    const profileOwner = users[userId]
+
 
 
     const handleCommentSubmit = (e) => {

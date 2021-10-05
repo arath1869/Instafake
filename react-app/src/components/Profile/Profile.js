@@ -25,13 +25,14 @@ const Profile = () => {
     const dispatch = useDispatch()
     const followers = useSelector(state => Object.values(state.followers.users))
     const following = useSelector(state => Object.values(state.following.users))
-
+    
     let testIfFollowing = Object.values(followers).some(users => users.id === user.id)
     let [followed, setFollowed] = useState(testIfFollowing)
-
+    
     const [showFollowerModal, setShowFollowerModal] = useState(false);
     const [showFollowingModal, setShowFollowingModal] = useState(false);
     const [showComingSoonModal, setShowComingSoonModal] = useState(false)
+    const [profileOwner, setProfileOwner] = useState(users[userId])
   
 
     useEffect(() => {
@@ -51,6 +52,15 @@ const Profile = () => {
 
     useEffect(() => {
         (async () => {
+            await setProfileOwner(users[userId])
+            await dispatch(get_feed())
+            await dispatch(get_followers(userId))
+            await dispatch(get_followings(userId))
+        })()
+    },[userId])
+
+    useEffect(() => {
+        (async () => {
             await dispatch(get_feed());
         })();
     }, [dispatch]);
@@ -67,7 +77,6 @@ const Profile = () => {
         })();
     }, [dispatch]);
 
-    let profileOwner = users[userId]
 
     let imagesArray = []
 

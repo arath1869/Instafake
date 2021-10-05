@@ -45,7 +45,7 @@
     height: 100%;
     width: 100%;
     display: inline-block;
-    background-size: fill;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
