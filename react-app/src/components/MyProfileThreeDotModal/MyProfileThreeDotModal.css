@@ -1,0 +1,9 @@
+.myprofile_threedot{
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    float:right;
+    margin-left: 20px;
+    z-index: 0;
+}

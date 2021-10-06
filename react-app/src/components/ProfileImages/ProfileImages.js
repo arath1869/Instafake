@@ -1,10 +1,12 @@
 import React,{ useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Modal } from "../../context/Modal"
 import ProfileFeedModal from "../ProfileFeedModal/ProfileFeedModal";
 import { useParams } from 'react-router-dom';
+import { delete_image,get_feed } from "../../store/feed";
+import { useDispatch, useSelector } from "react-redux"
 
 const ProfileImages = ({ image }) => {
+    const dispatch = useDispatch()
     const user = useSelector(state => state.session.user);
     const [showImageModal, setShowImageModal] = useState(false);
     const { userId } = useParams();
@@ -12,6 +14,7 @@ const ProfileImages = ({ image }) => {
     const [word, setWord] = useState('parent')
     let [count, setCount] = useState(0)
     const [profileOwner, setProfileOwner] = useState('')
+    const [deleteImage, setDeleteImage] = useState(false)
 
     useEffect(() => {
         if(!userId){
@@ -20,6 +23,16 @@ const ProfileImages = ({ image }) => {
             setProfileOwner(users[userId])
         }
     },[])
+
+    useEffect(() => {
+        if(deleteImage){
+            dispatch(delete_image(image.id))
+            dispatch(get_feed())
+            setShowImageModal(false)
+            setDeleteImage(false)
+        }
+        dispatch(get_feed())
+    }, [deleteImage])
 
     useEffect(() => {
         setCount(count+=1)
@@ -41,7 +54,7 @@ const ProfileImages = ({ image }) => {
         }></div>
             {(showImageModal) && (
                 <Modal onClose={handleonClose}>
-                    <ProfileFeedModal image={image} profileOwner={profileOwner} changeWord={word => setWord(word)}/>
+                    <ProfileFeedModal changeDeleteImage={deleteImage => setDeleteImage(deleteImage)} image={image} profileOwner={profileOwner} changeWord={word => setWord(word)}/>
                 </Modal>
             )}
         </>

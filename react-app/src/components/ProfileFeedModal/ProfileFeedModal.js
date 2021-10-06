@@ -3,18 +3,25 @@ import { useDispatch, useSelector } from "react-redux";
 import { set_new_comment } from "../../store/comment";
 import { get_feed } from "../../store/feed";
 import LikeUnlikeComponent from "../LikeUnlikeComponent";
-import { NavLink, Link, useParams } from "react-router-dom";
+import { NavLink, Link, useParams, useLocation } from "react-router-dom";
 import { Modal } from "../../context/Modal"
 import UsersWhoLiked from "../UsersWhoLikedModal/UsersWhoLikedModal";
+import MyProfileThreeDotModal from "../MyProfileThreeDotModal";
+import EditPostModal from "../EditPostModal";
 import './ProfileFeedModal.css'
 
-const ProfileFeedModal = ({image, changeWord}) => {
+const ProfileFeedModal = ({image, changeWord, changeDeleteImage}) => {
     const { userId } = useParams()
-    const [showProfileFeedModal, setShowProfileFeedModal] = useState(false);
+    const user = useSelector(state => state.session.user);
     const users = useSelector(state => state.users)
     const dispatch = useDispatch()
-    const [comment, setComment] = useState('')
+    const location = useLocation()
     const profileOwner = users[userId]
+    const [comment, setComment] = useState('')
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [deleteImage, setDeleteImage] = useState(false)
+    const [showProfileFeedModal, setShowProfileFeedModal] = useState(false);
+    const [showMyProfileThreeDotModal, setShowMyProfileThreeDotModal] = useState(false);
 
 
 
@@ -39,10 +46,28 @@ const ProfileFeedModal = ({image, changeWord}) => {
         setShowProfileFeedModal(false);
     }, [word])
 
+    useEffect(() => {
+        if(showEditModal){
+            setShowMyProfileThreeDotModal(false)
+        }
+    },[showEditModal])
+
+    useEffect(() => {
+    if(deleteImage){
+       changeDeleteImage(true)
+    }
+    }, [deleteImage])
+
     function handleonClose(e) {
         e.preventDefault();
         setShowProfileFeedModal(false);
     }
+
+    function handleClickMyThreeDot(e) {
+        e.preventDefault()
+        setShowMyProfileThreeDotModal(true)
+    }
+
 
 
 
@@ -58,10 +83,33 @@ const ProfileFeedModal = ({image, changeWord}) => {
                 </div>
                 <div className='caption-share-container__image_modal'>
                     <div className='share-container-user-info__image_modal'>
-                        <div className='user-profile-thumb__image_modal' style={
-                            { backgroundImage: `url(${profileOwner?.profileImgUrl})` }
-                        }></div>
-                        <p>{profileOwner?.username}</p>
+                        {location.pathname !== '/my-profile' &&
+                            <>
+                            <div className='user-profile-thumb__image_modal' style={
+                                { backgroundImage: `url(${profileOwner?.profileImgUrl})` }
+                            }></div>
+                            <p>{profileOwner?.username}</p>
+                            </>
+                        }
+                        {location.pathname === '/my-profile' &&
+                            <>
+                                <div className='user-profile-thumb__image_modal' style={
+                                    { backgroundImage: `url(${user?.profileImgUrl})` }
+                                }></div>
+                                <p>{user?.username}</p>
+                                <div className="myprofile_threedot" onClick={handleClickMyThreeDot}>···</div>
+                            </>
+                        }
+                        {(showMyProfileThreeDotModal) && (
+                        <Modal onClose={() => setShowMyProfileThreeDotModal(false)}>
+                            <MyProfileThreeDotModal changeDeleteImage={deleteImage => setDeleteImage(deleteImage)} changeShowEditModal={showEditModal => setShowEditModal(showEditModal)} changeShowModal={showMyProfileThreeDotModal => setShowMyProfileThreeDotModal(showMyProfileThreeDotModal)}/>
+                        </Modal>
+                        )}
+                        {(showEditModal) && (
+                            <Modal onClose={() => setShowEditModal(false)}>
+                                <EditPostModal changeShowEditModal={showEditModal => setShowEditModal(showEditModal)} image={image}/>
+                            </Modal>
+                        )}
                     </div>
                     <div className='comments_container__image_modal'>
                         <div className='comment-section__image_modal'>
@@ -131,7 +179,7 @@ const CommentCard = ({ comment }) => {
                     { backgroundImage: `url(${comment.commenter.profileImgUrl})` }
                 }></div>
                 <div className='comment__image_modal'>
-                    <p><span className='username__image_modal'>{comment.commenter.username}</span> {comment.content}</p>
+                    <p><Link className="feed-profile__link" to={`/users/${comment.commenter.id}`}><span className='username__image_modal'>{comment.commenter.username}</span></Link> {comment.content}</p>
                 </div>
             </div>
         </>
