@@ -96,13 +96,13 @@ const MyProfile = () => {
                             <div className="profile-info__followers"><i onClick={() => { setShowFollowerModal(true) }} className="profile-i-tag">{`${followers.length}`}</i> followers</div>
                             {(showFollowerModal) && (
                                 <Modal onClose={() => setShowFollowerModal(false)}>
-                                    <FollowersModal followers={followers} />
+                                    <FollowersModal changeShowFollowerModal={showFollowerModal => setShowFollowerModal(showFollowerModal)} followers={followers} />
                                 </Modal>
                             )}
                             <div className="profile-info__following"><i onClick={() => { setShowFollowingModal(true) }} className="profile-i-tag">{`${following.length}`}</i> following</div>
                             {(showFollowingModal) && (
                                 <Modal onClose={() => setShowFollowingModal(false)}>
-                                    <FollowingModal followers={following} />
+                                    <FollowingModal changeShowModal={showFollowingModal => setShowFollowingModal(showFollowingModal)} followers={following} />
                                 </Modal>
                             )}
                         </div>

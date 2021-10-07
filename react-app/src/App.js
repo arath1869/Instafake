@@ -53,7 +53,7 @@ function App() {
                     <MyProfile />
                 </ProtectedRoute>
                 <ProtectedRoute>
-                    <div className="errorpage">NotFound!</div>
+                    <div className="errorpage">404 NotFound!</div>
                 </ProtectedRoute>
             </Switch>
         </BrowserRouter>

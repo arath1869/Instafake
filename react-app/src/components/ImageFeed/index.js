@@ -9,6 +9,7 @@ import './ImageFeed.css'
 const ImageFeed = () => {
     const feed = useSelector(state => state.feed)
     const users = useSelector(state => state.users)
+    const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -23,9 +24,17 @@ const ImageFeed = () => {
         })();
     }, [dispatch]);
 
+    useEffect(() => {
+        if(users[1]){
+            setIsLoaded(true)
+        }
+    },[users])
+
 
 
     return (
+        <>
+        {isLoaded &&
         <>
             <div className="feed-container">
             <div className="feed-subcontainer">
@@ -36,6 +45,7 @@ const ImageFeed = () => {
                 ))}
                 </div>
             </div>
+        </>}
         </>
     )
 }
