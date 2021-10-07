@@ -40,7 +40,7 @@ const Profile = () => {
             setProfileOwner(users[userId])
             setIsLoaded(true)
         }
-    },[users])
+    },[userId,users])
 
     useEffect(() => {
         window.scrollTo(0, 0)
