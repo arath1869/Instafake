@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { delete_image } from "../../store/feed";
 import { Modal } from "../../context/Modal"
 import { get_feed } from "../../store/feed";
@@ -30,10 +30,6 @@ const FeedCard = (feedCardProps) => {
     const [showEditModal, setShowEditModal] = useState(false)
     
     const dispatch = useDispatch()
-
-    const handleDeleteImage = (imgId) => {
-        dispatch(delete_image(imgId))
-    }
 
     useEffect(() => {
         setCount(count += 1)

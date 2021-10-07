@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { update_image, get_feed } from "../../store/feed";
+import { useDispatch } from "react-redux"
+import { update_image } from "../../store/feed";
 import './EditPostModal.css'
 
 const EditPostModal = ({image, changeShowEditModal}) => {

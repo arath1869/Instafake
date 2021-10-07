@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { update_user } from "../../store/user";
 import { get_feed } from "../../store/feed";
-import { get_users } from "../../store/user";
 import { uploadFile } from 'react-s3'
 import { authenticate } from "../../store/session";
 import './EditProfilePicModal.css'

@@ -5,13 +5,10 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/Navbar/index.js';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import ImageFeed from './components/ImageFeed';
 import Profile from './components/Profile/Profile';
-import ImageUploadModal from './components/ImageUploadModals/ImageUploadForm';
 import { authenticate } from './store/session';
 import ImageEditForm from './components/ImageEditForm';
-import UpdateProfile from './components/UpdateProfile';
 import MyProfile from './components/MyProfile';
 
 
@@ -52,11 +49,11 @@ function App() {
                 <ProtectedRoute path='/' exact={true} >
                     <Redirect from="/" to="/home" />
                 </ProtectedRoute>
-                <ProtectedRoute path='/profile-update' exact={true}>
-                    <UpdateProfile />
-                </ProtectedRoute>
                 <ProtectedRoute path="/my-profile" exact={true}>
                     <MyProfile />
+                </ProtectedRoute>
+                <ProtectedRoute>
+                    <div className="errorpage">NotFound!</div>
                 </ProtectedRoute>
             </Switch>
         </BrowserRouter>

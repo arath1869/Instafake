@@ -33,7 +33,14 @@ const Profile = () => {
     const [showFollowingModal, setShowFollowingModal] = useState(false);
     const [showComingSoonModal, setShowComingSoonModal] = useState(false)
     const [profileOwner, setProfileOwner] = useState(users[userId])
-  
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    useEffect(() => {
+        if(users[1] !== undefined){
+            setProfileOwner(users[userId])
+            setIsLoaded(true)
+        }
+    },[users])
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -52,30 +59,21 @@ const Profile = () => {
 
     useEffect(() => {
         (async () => {
-            await setProfileOwner(users[userId])
-            await dispatch(get_feed())
-            await dispatch(get_followers(userId))
-            await dispatch(get_followings(userId))
-        })()
-    },[userId])
-
-    useEffect(() => {
-        (async () => {
             await dispatch(get_feed());
         })();
-    }, [dispatch]);
+    }, [userId,dispatch]);
 
     useEffect(() => {
         (async () => {
             await dispatch(get_followers(userId));
         })();
-    }, [dispatch]);
+    }, [userId,dispatch]);
 
     useEffect(() => {
         (async () => {
             await dispatch(get_followings(userId));
         })();
-    }, [dispatch]);
+    }, [userId,dispatch]);
 
 
     let imagesArray = []
@@ -86,23 +84,23 @@ const Profile = () => {
         }
     })
 
-    console.log('followed',followed)
-    console.log('testiffollowing', testIfFollowing)
 
     if (Number(userId) === Number(user.id)) {
         return <Redirect to='/my-profile' />;
     } else return (
         <>
+        {isLoaded &&
+        <>
         <div className="profile-page__container">
             <div className="profile-general">
                 <div className="profile-card">
                     <div className="profile-image-holder" style={
-                        { backgroundImage: `url(${profileOwner?.profileImgUrl})`}
+                        { backgroundImage: `url(${profileOwner.profileImgUrl})`}
                     }>
                     </div>
                     <div className="profile-info-holder">
                         <div className="profile-info__firstLayer">
-                            <div className="profile-info__username">{profileOwner?.username}</div>
+                            <div className="profile-info__username">{profileOwner.username}</div>
                             {(followed && testIfFollowing) &&
                                 <>
                                 <button className="profile-info__message" onClick={() => setShowComingSoonModal(true)} >Message</button>
@@ -125,13 +123,13 @@ const Profile = () => {
                             <div className="profile-info__followers"><i onClick={() => { setShowFollowerModal(true) }} className="profile-i-tag">{`${followers.length}`}</i> followers</div>
                                 {(showFollowerModal) && (
                                     <Modal onClose={() => setShowFollowerModal(false)}>
-                                        <FollowersModal followers={followers} />
+                                        <FollowersModal changeShowFollowerModal={showFollowerModal => setShowFollowerModal(showFollowerModal)} followers={followers} />
                                     </Modal>
                                 )}
                             <div className="profile-info__following"><i onClick={() => { setShowFollowingModal(true) }} className="profile-i-tag">{`${following.length}`}</i> following</div>
                                 {(showFollowingModal) && (
                                     <Modal onClose={() => setShowFollowingModal(false)}>
-                                        <FollowingModal followers={following} />
+                                        <FollowingModal changeShowModal={showFollowingModal => setShowFollowingModal(showFollowingModal)} followers={following} />
                                     </Modal>
                                 )}
                         </div>
@@ -146,6 +144,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
+        </>}
         </>
     )
 }

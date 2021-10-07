@@ -1,8 +1,14 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 
 function FollowingModal(followers) {
+    
+    const history = useHistory()
+    function handleClick(id){
+        followers.changeShowModal(false)
+        history.push(`/users/${id}`)
+    }
 
-    console.log(followers.followers)
 
     return (
         <div className="user-who-liked__liked_modal">
@@ -24,7 +30,7 @@ function FollowingModal(followers) {
                                 <div className="modal-profile-pic" style={
                                     { backgroundImage: `url(${element.profileImgUrl})` }
                                 }></div>
-                                <div className="modal-profile-username">{element.username}</div>
+                                <div onClick={() => handleClick(element.id)} className="modal-profile-username">{element.username}</div>
                             </div>
                         ))}
                     </div>

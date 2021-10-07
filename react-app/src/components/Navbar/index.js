@@ -107,7 +107,6 @@ const NavBar = () => {
     let _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
             if (filteredSearch.length !== 0) {
-                console.log(filteredSearch)
                 history.push(`/users/${filteredSearch[0].id}`)
             }
         }
@@ -130,7 +129,6 @@ const NavBar = () => {
         });
         let filtered = sorted.filter(el => el.imgId.userId === id)
         setActivityFeed(filtered)
-        console.log(activityFeed)
     })
 
     const imageModalHandler = (image) => {

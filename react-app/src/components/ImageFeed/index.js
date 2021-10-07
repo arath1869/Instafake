@@ -23,10 +23,6 @@ const ImageFeed = () => {
         })();
     }, [dispatch]);
 
-    console.log('users', users)
-
-    console.log(Date())
-
 
 
     return (
