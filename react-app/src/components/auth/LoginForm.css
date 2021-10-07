@@ -163,3 +163,23 @@ hr:after {
         height: 350px;
     }
 }
+
+@media only screen 
+  and (min-device-width: 300px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+.phone-image{
+        display:none;
+    }
+    .login-form{
+        border: 1px solid transparent;
+        width:100%;
+        height: 100%;
+        margin: 50px auto;
+    }
+
+    .instagram-title{
+        font-size: 100px;
+    }
+
+}
