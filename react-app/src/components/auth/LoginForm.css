@@ -164,7 +164,10 @@ hr:after {
     }
 }
 
-@media only screen 
+
+/* the below code works for customizing for iphone or mobile devices for future use */
+
+/* @media only screen 
   and (min-device-width: 300px) 
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3) { 
@@ -182,4 +185,4 @@ hr:after {
         font-size: 100px;
     }
 
-}
+} */
