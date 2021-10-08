@@ -192,3 +192,17 @@ height: 25px;
     margin-right: 15px;
     z-index: 0;
 }
+
+.recommended-follow{
+    border: 1px solid transparent;
+    margin: 100px auto;
+    width: 800px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #9e9e9e;
+}
+
+.try-search{
+    font-size: 20px;
+}

@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux"
 import { get_feed } from "../../store/feed";
 import FeedCard from '../FeedCard'
 import { get_users } from "../../store/user";
+import { get_followings } from "../../store/following";
 import './ImageFeed.css'
 
 
 const ImageFeed = () => {
+    const user = useSelector(state => state.session.user)
     const feed = useSelector(state => state.feed)
     const users = useSelector(state => state.users)
+    const following = useSelector(state => Object.values(state.following.users))
     const [isLoaded, setIsLoaded] = useState(false)
     const dispatch = useDispatch()
 
@@ -30,11 +33,17 @@ const ImageFeed = () => {
         }
     },[users])
 
+    useEffect(() => {
+        dispatch(get_followings(user.id))
+    },[dispatch])
+
+    console.log(following)
+
 
 
     return (
         <>
-        {isLoaded &&
+        {isLoaded && following.length &&
         <>
             <div className="feed-container">
             <div className="feed-subcontainer">
@@ -46,6 +55,15 @@ const ImageFeed = () => {
                 </div>
             </div>
         </>}
+        {isLoaded && !following.length &&
+        <>
+                <div className="recommended-follow">
+                    <div>You are not following anyone!</div>
+                    <div>Search for your friends now!</div>
+                    <div className="try-search">(try searching for Arnold Schwarzenegger, Jim Carrey, Emma Watson, Arath Vidrio)</div>
+                </div>
+        </>
+        }
         </>
     )
 }
