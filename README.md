@@ -52,6 +52,5 @@ Instafake is a web application that allows users to post images and view/comment
 ***
 
 ### Future Goals
-- User Profile Updates
 - Messaging
 - Image Tags
