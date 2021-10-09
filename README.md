@@ -28,6 +28,7 @@ Instafake is a web application that allows users to post images and view/comment
 - PostgreSQL (Database)
 - SQLAlchemy
 - AJAX
+- Docker Container
 
 ***
 
