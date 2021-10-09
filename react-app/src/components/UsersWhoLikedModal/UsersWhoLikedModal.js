@@ -10,7 +10,7 @@ function UsersWhoLiked(showProp) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
     const follow = useSelector(state => state.following.users)
-    let newArray = showProp.props.reverse()
+    let newArray = showProp.props
     
 
     function handleClick() {
