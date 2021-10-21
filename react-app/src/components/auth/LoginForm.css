@@ -167,22 +167,101 @@ hr:after {
 
 /* the below code works for customizing for iphone or mobile devices for future use */
 
-/* @media only screen 
+@media only screen 
   and (min-device-width: 300px) 
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3) { 
 .phone-image{
         display:none;
     }
-    .login-form{
-        border: 1px solid transparent;
-        width:100%;
-        height: 100%;
-        margin: 50px auto;
-    }
 
     .instagram-title{
-        font-size: 100px;
+        font-size: 220px;
+        margin-left: 160px;
+        margin-bottom: 50px;
     }
 
-} */
+    .login-form{
+        border: 1px solid transparent;
+    }
+
+    .login-form-inputs{
+        width: 800px;
+        height: 100px;
+        margin-top: 70px;
+        margin-left: 65px;
+        font-size: 40px;
+    }
+
+    .login-button{
+        height: 100px;
+        width: 800px;
+        margin-top: 70px;
+        margin-left: 80px;
+        font-size: 40px;
+    }
+
+    hr {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: -10px;
+    opacity: .5;
+}
+
+.demo-or{
+    margin-left: -20px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 1000px;
+}
+
+hr:before {
+    content: '';
+    background: #818078;
+    position: absolute;
+    left: 10%;
+    top: 80%;
+    width: 800px;
+    height: 5px;
+}
+
+hr:after {
+    content: attr(data-content);
+    font-size: calc(10px + 2vw);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    margin-top: -12px;
+    line-height:-1em;
+    padding-left: 5px;
+    padding-top: 2px;
+    padding-right: 5px;
+    color: #4f4f4f;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.demo-button{
+        height: 100px;
+        width: 800px;
+        margin-top: 70px;
+        margin-left: 80px;
+        font-size: 40px;
+}
+
+.login-form__signup{
+    border: 1px solid transparent;
+    font-size: 50px;
+    white-space: nowrap;
+    margin-top: 150px;
+    margin-left: 115px;
+    
+}
+
+
+}
