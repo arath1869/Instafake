@@ -138,6 +138,21 @@ hr:after {
     font-size: calc(12px + 0.2vw);
 }
 
+.login-form__signup__login{
+    border: 1px solid #D4D4D4;
+    max-width: 300px;
+    text-align: center;
+    font-family:'Roboto',sans-serif;
+    display: block;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3px;
+    height: 40px;
+    padding-top: 20px;
+    font-size: calc(12px + 0.2vw);
+}
+
 .wrapper{
     /* border: 1px solid black; */
     width: 300px;
@@ -261,6 +276,14 @@ hr:after {
     margin-top: 150px;
     margin-left: 115px;
     
+}
+
+.login-form__signup__login{
+     border: 1px solid transparent;
+    font-size: 50px;
+    white-space: nowrap;
+    margin-top: 150px;
+    margin-left: 115px;
 }
 
 

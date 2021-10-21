@@ -52,10 +52,10 @@ const SignUpForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
-        <div className="instagram-title">Pseudogram</div>
+        <div className="instagram-title__signup">Instafake</div>
         <div className="signup-text">Sign up to see photos and videos from your friends.</div>
       <div>
-        <div className="login-field">
+        <div className="login-field__signup">
           <input className="login-form-inputs"
           type='text'
           placeholder="Username"
@@ -66,7 +66,7 @@ const SignUpForm = () => {
           </div>
       </div>
       <div>
-        <div className="login-field">
+            <div className="login-field__signup">
         <input className="login-form-inputs"
           type='text'
           name='email'
@@ -77,7 +77,7 @@ const SignUpForm = () => {
           </div>
       </div>
       <div>
-        <div className="login-field">
+            <div className="login-field__signup">
           <input className="login-form-inputs"
           type='password'
           name='password'
@@ -88,7 +88,7 @@ const SignUpForm = () => {
           </div>
       </div>
       <div>
-        <div className="login-field">
+            <div className="login-field__signup">
           <input className="login-form-inputs"
           type='password'
           placeholder="Confirm Password"
@@ -102,7 +102,7 @@ const SignUpForm = () => {
       <button className="signup-button" type='submit'>Sign Up</button>
     </form>
     </div>
-      <div className="login-form__signup">Have an account? <Link to="/login" className="signup-link">Log in</Link></div>
+      <div className="login-form__signup__mobile">Have an account? <Link to="/login" className="signup-link">Log in</Link></div>
     </div>
   );
 };
