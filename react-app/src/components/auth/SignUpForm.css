@@ -55,7 +55,6 @@
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-left: -240px;
 }
 
 .login-form__signup__mobile{
@@ -81,14 +80,12 @@
         border: 1px solid transparent;
     }
     .signup-text{
-        font-size: 47px;
-        white-space: nowrap;
-        margin-left: -325px;
+        display: none;
     }
 
     .instagram-title__signup{
-        font-size: 220px;
-        margin-left: -30px;
+        font-size: 180px;
+        margin-left: -100px;
         margin-bottom: 50px;
     }
 
@@ -101,16 +98,20 @@
         border: 1px solid transparent;
         font-size: 50px;
         white-space: nowrap;
-        margin-top: 1200px;
-        margin-left: 280px;
+        margin-top: 890px;
+        margin-left: 200px;
     }
 
     .signup-button{
         height: 100px;
         width: 800px;
         margin-top: 100px;
-        margin-left: -160px;
+        margin-left: -239px;
         font-size: 40px;
+    }
+
+    .login-field__signup{
+        margin-left: -320px;
     }
 
   }
