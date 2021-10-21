@@ -201,3 +201,69 @@
 
   color: rgba(38, 38, 38);
 }
+
+@media only screen 
+  and (min-device-width: 300px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) {
+    .nav-bar{
+      height: 100px;
+    }
+
+    .nav-logo{
+      font-size: 60px;
+      margin-left: -50px;
+    }
+
+    .search-bar{
+      margin-top: 40px;
+      height: 40px;
+      width: 300px;
+      font-size: 25px;
+    }
+
+    .nav-home-img{
+      height: 50px;
+      margin-top: 40px;
+      margin-left: -100px;
+    }
+    .nav-home-img:hover{
+      background: none;
+    }
+
+    .nav-add-btn{
+      height: 50px;
+      background: none;
+      margin-top: 40px;
+      margin-left: -29px;
+    }
+    .nav-add-btn:hover{
+      background: none;
+    }
+
+    .activity-nav-img{
+      height: 50px;
+      background: none;
+      margin-top: 40px;
+    }
+
+    .activity-nav-img:hover{
+      background: none;
+    }
+
+    .profile-img-nav{
+      height: 50px;
+      width: 50px;
+      margin-top: 40px;
+    }
+    .search-dropdown{
+      margin-top: 30px;
+    }
+
+    .activity-dropdown{
+      margin-top: 40px;
+      margin-left: -20px;
+    }
+
+
+  }

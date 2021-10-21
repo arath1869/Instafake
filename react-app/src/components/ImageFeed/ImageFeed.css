@@ -206,3 +206,12 @@ height: 25px;
 .try-search{
     font-size: 20px;
 }
+
+@media only screen 
+  and (min-device-width: 300px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) {
+      .feed-subcontainer{
+        margin-top: 100px;
+      }
+  }
