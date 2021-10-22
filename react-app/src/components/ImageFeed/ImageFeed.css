@@ -246,7 +246,7 @@ height: 25px;
 }
 
 .feed_threedot{
-    margin-top: 10px;
+    margin-top: 15px;
     font-weight: bold;
     font-size: 50px;
     cursor: pointer;
@@ -349,6 +349,7 @@ height: 50px;
 border: 1px solid transparent;
 width:100%;
 height: 25px;
+margin-bottom: 25px;
 }
 
 .comments-link__time{
