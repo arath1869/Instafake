@@ -262,8 +262,16 @@
 
     .activity-dropdown{
       margin-top: 40px;
-      margin-left: -20px;
+      margin-left: -120px;
     }
 
+    .profile-img-nav:hover{
+      height: 50px;
+      width: 50px;
+    }
+
+    .nav-profile-dropdown{
+      margin-top: 40px;
+    }
 
   }
