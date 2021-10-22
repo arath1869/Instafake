@@ -108,7 +108,7 @@ const MyProfile = () => {
                         </div>
                     </div>
                 </div>
-            <hr></hr>
+                <div className="profile-line">_________________________________________________________________________________</div>
             <div className="profile-images-container">
                 {imagesArray.reverse().map(image => (
                     <ProfileImages image={image} userId={user} />
